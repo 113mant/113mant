@@ -1,4 +1,6 @@
 import * as d3 from 'd3';
+import { XAxis } from './XAxis';
+import { YAxis } from './YAxis';
 
 export default function ScatterPlot({ width, height, data, xKey, yKey }) {
     
@@ -30,10 +32,13 @@ export default function ScatterPlot({ width, height, data, xKey, yKey }) {
                         key={i}
                         cx={xScale(d[xKey])}
                         cy={yScale(d[yKey])}
-                        r={1}
+                        r={2}
                         fill="steelblue"
+                        opacity={0.1}
                         />
                     ))}
+                <YAxis yScale={yScale} />
+                <XAxis xScale={xScale} innerHeight={innerHeight} />
                 </g>
             </svg>
         </>
